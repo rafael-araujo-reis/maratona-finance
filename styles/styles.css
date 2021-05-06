@@ -1,0 +1,137 @@
+:root {
+  --green      : #2D4A22;
+  --green-light: #49AA26;
+  --red        : #E92929;
+  --white      : #FFFFFF;
+
+  --background: #F0F2F5;
+  --title     : #363F5F;
+  --text      : #969CB2;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;900&display=swap');
+
+* {
+  margin    : 0;
+  padding   : 0;
+  box-sizing: border-box;
+
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+/********************************
+TEXTS
+*********************************/
+h2 {
+  color        : var(--title);
+  font-weight  : 400;
+  margin-top   : 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/********************************
+HEADER
+*********************************/
+header {
+  background-color: var(--green);
+  padding         : 2rem 0 10rem;
+
+  text-align: center;
+}
+
+#logo {
+  color: var(--white);
+}
+
+/********************************
+BODY
+*********************************/
+body {
+  background-color: var(--background);
+}
+
+.container {
+  width : min(800px, 90vw);
+  margin: auto;
+}
+
+#balance {
+  margin-top: -8rem;
+}
+
+#balance h2 {
+  color: var(--white);
+}
+
+.card {
+  background-color: var(--white);
+
+  margin : 1rem 0;
+  padding: 1.5rem 2rem;
+
+  border-radius: 0.5rem;
+}
+
+.card h3 {
+  font-weight: normal;
+  font-size  : 1rem;
+}
+
+.card p {
+  margin-top: 0.5rem;
+  font-size : 2rem;
+}
+
+.card.total {
+  color           : var(--white);
+  background-color: var(--green-light);
+}
+
+/********************************
+TABLE
+*********************************/
+#data-table {
+  width         : 100%;
+  border-spacing: 0 0.5rem;
+  color         : var(--text);
+}
+
+#data-table tr {
+  opacity: 0.7;
+}
+
+#data-table tr:hover {
+  opacity: 1;
+}
+
+#data-table th,
+#data-table td {
+  padding: 1rem 2rem
+}
+
+#data-table th:first-child,
+#data-table td:first-child {
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+
+#data-table th:last-child,
+#data-table td:last-child {
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+#data-table th {
+  background-color: var(--white);
+  text-align      : left;
+  font-weight     : normal;
+}
+
+#data-table td {
+  background-color: var(--white);
+}
+
+/********************************
+FOOTER
+*********************************/
+footer {
+  text-align: center;
+}
