@@ -1,6 +1,7 @@
 :root {
   --green      : #2D4A22;
   --green-light: #49AA26;
+  --green-shine: #12A454;
   --red        : #E92929;
   --white      : #FFFFFF;
 
@@ -96,11 +97,11 @@ TABLE
   color         : var(--text);
 }
 
-#data-table tr {
+#data-table tbody tr {
   opacity: 0.7;
 }
 
-#data-table tr:hover {
+#data-table tbody tr:hover {
   opacity: 1;
 }
 
@@ -129,9 +130,25 @@ TABLE
   background-color: var(--white);
 }
 
+.description {
+  color: var(--title)
+}
+
+.income {
+  color: var(--green-shine)
+}
+
+.expense {
+  color: var(--red)
+}
+
 /********************************
 FOOTER
 *********************************/
 footer {
   text-align: center;
+
+  padding: 4rem 0 2rem;
+  color  : var(--title);
+  opacity: 0.6
 }
