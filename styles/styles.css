@@ -160,6 +160,10 @@ TABLE
   overflow-x: auto;
 }
 
+#transactions a {
+  width: auto;
+}
+
 #data-table {
   border-spacing: 0 0.5rem;
   color         : var(--text);
