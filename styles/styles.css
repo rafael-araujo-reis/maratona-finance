@@ -2,6 +2,7 @@
   --green      : #2D4A22;
   --green-light: #49AA26;
   --green-shine: #12A454;
+  --green-glow : #3DD705;
   --red        : #E92929;
   --white      : #FFFFFF;
 
@@ -89,6 +90,10 @@ body {
 .card h3 {
   font-weight: normal;
   font-size  : 1rem;
+
+  display        : flex;
+  align-items    : center;
+  justify-content: space-between;
 }
 
 .card p {
@@ -99,6 +104,26 @@ body {
 .card.total {
   color           : var(--white);
   background-color: var(--green-light);
+}
+
+/********************************
+LINKS AND BUTTONS
+*********************************/
+a {
+  text-decoration: none;
+  transition     : color 0.25s;
+
+  color: var(--green-light);
+}
+
+a:hover {
+  color: var(--green-glow);
+}
+
+
+.button.new-transaction {
+  display: inline-block;
+  margin : 0.8rem 0;
 }
 
 /********************************
