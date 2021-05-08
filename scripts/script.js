@@ -9,7 +9,13 @@ const Modal = {
 
 const Transaction = {
   income() {
-    //somar valores de entrada
+    let incomeSum = 0;
+    transactions.forEach((transaction) => {
+      if (transaction.amount > 0) {
+        incomeSum += transaction.amount;
+      }
+    });
+    return incomeSum;
   },
   expense() {
     //somar valores de saida
