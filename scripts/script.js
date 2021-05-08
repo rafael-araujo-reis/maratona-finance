@@ -8,13 +8,13 @@ const Modal = {
 };
 
 const Transaction = {
-  income = {
+  income() {
     //somar valores de entrada
   },
-  expense = {
+  expense() {
     //somar valores de saida
   },
-  total = {
+  total() {
     //somar entrada e saídas
   }
 };
@@ -41,13 +41,17 @@ const transactions = [
 ];
 
 const DOM = {
-  innerHTMLTransactions =
-  `<tr>
-    <td class="description">Conta de luz</td>
-    <td class="expense">-R$ 600,00</td>
-    <td class="date">13/04/2021</td>
-    <td>
-      <img src="./assets/minus.svg" alt="Remover transação">
-    </td>
-  </tr>`
+  innerHTMLTransactions() {
+    const html = `
+      <tr>
+        <td class="description">Conta de luz</td>
+        <td class="expense">-R$ 600,00</td>
+        <td class="date">13/04/2021</td>
+        <td>
+          <img src="./assets/minus.svg" alt="Remover transação">
+        </td>
+      </tr>
+  `;
+  }
+
 };
