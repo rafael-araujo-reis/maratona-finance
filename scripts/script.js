@@ -41,7 +41,13 @@ const transactions = [
 ];
 
 const DOM = {
-  innerHTMLTransactions() {
+  addTransaction(transaction, index) {
+    const tr = document.createElement('tr');
+    tr.innerHTML = this.innerHTMLTransactions(transaction);
+
+    console.log(tr);
+  },
+  innerHTMLTransactions(transaction) {
     const html = `
       <tr>
         <td class="description">${transaction.description}</td>
