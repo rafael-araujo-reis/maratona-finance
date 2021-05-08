@@ -7,39 +7,6 @@ const Modal = {
   }
 };
 
-const transactions = [
-  {
-    id: 1,
-    description: 'Desenvolvimento',
-    amount: 1200000,
-    date: '13/04/2021'
-  },
-  {
-    id: 2,
-    description: 'Conta de luz',
-    amount: -60000,
-    date: '13/04/2021'
-  },
-  {
-    id: 3,
-    description: 'Terreno',
-    amount: -100000,
-    date: '13/04/2021'
-  },
-  {
-    id: 4,
-    description: 'Terreno',
-    amount: -6000000,
-    date: '13/04/2021'
-  },
-  {
-    id: 4,
-    description: 'PLR',
-    amount: 1300000,
-    date: '13/04/2021'
-  }
-];
-
 const Transaction = {
   all: transactions,
   add(transaction) {
@@ -151,4 +118,7 @@ transactions.forEach((transaction) => {
   DOM.addTransaction(transaction);
 });
 
-DOM.updateBalance();
+DOM.updateBalance();  }
+};
+
+App.init();
