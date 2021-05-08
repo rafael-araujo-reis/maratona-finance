@@ -51,6 +51,18 @@ const transactions = [
     description: 'Terreno',
     amount: -100000,
     date: '13/04/2021'
+  },
+  {
+    id: 4,
+    description: 'Terreno',
+    amount: -6000000,
+    date: '13/04/2021'
+  },
+  {
+    id: 4,
+    description: 'PLR',
+    amount: 1300000,
+    date: '13/04/2021'
   }
 ];
 
@@ -60,14 +72,13 @@ const DOM = {
     const tr = document.createElement('tr');
     tr.innerHTML = this.innerHTMLTransactions(transaction);
     this.transactionContainer.append(tr);
-    console.log(tr);
   },
   innerHTMLTransactions(transaction) {
     const classCSS = transaction.amount > 0 ? 'income' : 'expense';
-    Utils.formatCurrent(transaction.amount);
+    const amount = Utils.formatCurrent(transaction.amount);
     const html = `
       <td class="description">${transaction.description}</td>
-      <td class="${classCSS}">${transaction.amount}</td>
+      <td class="${classCSS}">${amount}</td>
       <td class="date">${transaction.date}</td>
       <td>
         <img src="./assets/minus.svg" alt="Remover transação">
