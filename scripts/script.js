@@ -8,6 +8,12 @@ const Modal = {
 };
 
 const Transaction = {
+  all: transactions,
+  add(transaction) {
+    this.all.push(transaction);
+    DOM.addTransaction(transaction);
+    DOM.updateBalance();
+  },
   income() {
     let incomeSum = 0;
     transactions.forEach((transaction) => {
