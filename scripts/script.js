@@ -45,7 +45,7 @@ const DOM = {
   addTransaction(transaction, index) {
     const tr = document.createElement('tr');
     tr.innerHTML = this.innerHTMLTransactions(transaction);
-
+    this.transactionContainer.append(tr);
     console.log(tr);
   },
   innerHTMLTransactions(transaction) {
