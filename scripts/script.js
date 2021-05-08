@@ -61,4 +61,6 @@ const DOM = {
   }
 };
 
-DOM.addTransaction(transactions[0]);
+transactions.forEach((transaction) => {
+  DOM.addTransaction(transaction);
+});
