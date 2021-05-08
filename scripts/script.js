@@ -49,6 +49,8 @@ const DOM = {
     console.log(tr);
   },
   innerHTMLTransactions(transaction) {
+    const classCSS = transaction.amount > 0 ? 'income' : 'expense';
+    Utils.formatCurrent(transaction.amount);
     const html = `
       <td class="description">${transaction.description}</td>
       <td class="expense">${transaction.amount}</td>
