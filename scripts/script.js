@@ -18,7 +18,13 @@ const Transaction = {
     return incomeSum;
   },
   expense() {
-    //somar valores de saida
+    let expenseSum = 0;
+    transactions.forEach((transaction) => {
+      if (transaction.amount < 0) {
+        expenseSum += transaction.amount;
+      }
+    });
+    return expenseSum;
   },
   total() {
     //somar entrada e saídas
