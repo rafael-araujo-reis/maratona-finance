@@ -60,7 +60,6 @@ const DOM = {
   `;
     return html;
   }
-
 };
 
 DOM.addTransaction(transactions[0]);
