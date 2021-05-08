@@ -84,6 +84,7 @@ body {
 
 .card {
   background-color: var(--white);
+  color           : var(--title);
 
   margin : 1rem 0;
   padding: 1.5rem 2rem;
