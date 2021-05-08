@@ -114,10 +114,11 @@ const DOM = {
   }
 };
 
-const App = {
-  init() {
-    Transaction.all.forEach((transaction) => {
-      DOM.addTransaction(transaction);
-    });
+transactions.forEach((transaction) => {
+  DOM.addTransaction(transaction);
+});
 
-DOM.updateBalance();
+DOM.updateBalance();  }
+};
+
+App.init();
