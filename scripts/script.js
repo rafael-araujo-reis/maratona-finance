@@ -27,4 +27,16 @@ const transactions = [
     amount: -100000,
     date: '13/04/2021'
   }
+];
+
+const DOM = {
+  innerHTMLTransactions =
+  `<tr>
+    <td class="description">Conta de luz</td>
+    <td class="expense">-R$ 600,00</td>
+    <td class="date">13/04/2021</td>
+    <td>
+      <img src="./assets/minus.svg" alt="Remover transação">
+    </td>
+  </tr>`
 };
