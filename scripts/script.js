@@ -27,7 +27,9 @@ const Transaction = {
     return expenseSum;
   },
   total() {
-    //somar entrada e saídas
+    let totalSum = 0;
+    totalSum = this.expense() + this.income();
+    return totalSum;
   }
 };
 
