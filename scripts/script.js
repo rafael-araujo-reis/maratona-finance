@@ -7,52 +7,6 @@ const Modal = {
   }
 };
 
-const Transaction = {
-  all: transactions,
-  add(transaction) {
-    this.all.push(transaction);
-    DOM.addTransaction(transaction);
-    DOM.updateBalance();
-  },
-  income() {
-    let incomeSum = 0;
-    transactions.forEach((transaction) => {
-      if (transaction.amount > 0) {
-        incomeSum += transaction.amount;
-      }
-    });
-    return incomeSum;
-  },
-  expense() {
-    let expenseSum = 0;
-    transactions.forEach((transaction) => {
-      if (transaction.amount < 0) {
-        expenseSum += transaction.amount;
-      }
-    });
-    return expenseSum;
-  },
-  total() {
-    let totalSum = 0;
-    totalSum = this.expense() + this.income();
-    return totalSum;
-  }
-};
-
-const Utils = {
-  formatCurrent(value) {
-    const signal = Number(value) > 0 ? '' : '-';
-    value = String(value).replace(/\D/, '');
-    value = Number(value) / 100;
-
-    value = value.toLocaleString('pt-BR', {
-      style: 'currency',
-      currency: 'BRL'
-    });
-    return signal + value;
-  }
-};
-
 const transactions = [
   {
     id: 1,
@@ -86,6 +40,54 @@ const transactions = [
   }
 ];
 
+const Transaction = {
+  all: transactions,
+  add(transaction) {
+    this.all.push(transaction);
+    DOM.addTransaction(transaction);
+    DOM.updateBalance();
+  },
+  income() {
+    let incomeSum = 0;
+    transactions.forEach((transaction) => {
+      if (transaction.amount > 0) {
+        incomeSum += transaction.amount;
+      }
+    });
+    return incomeSum;
+  },
+  expense() {
+    let expenseSum = 0;
+    this.all.forEach((transaction) => {
+      if (transaction.amount < 0) {
+        expenseSum += transaction.amount;
+      }
+    });
+    return expenseSum;
+  },
+  total() {
+    let totalSum = 0;
+    totalSum = this.expense() + this.income();
+    return totalSum;
+  }
+};
+
+const Utils = {
+  formatCurrent(value) {
+    const signal = Number(value) > 0 ? '' : '-';
+    value = String(value).replace(/\D/, '');
+    value = Number(value) / 100;
+
+    value = value.toLocaleString('pt-BR', {
+      style: 'currency',
+      currency: 'BRL'
+    });
+    return signal + value;
+  }
+};
+
+
+
 const DOM = {
   transactionContainer: document.querySelector('#data-table tbody'),
   addTransaction(transaction, index) {
@@ -114,11 +116,14 @@ const DOM = {
   }
 };
 
-transactions.forEach((transaction) => {
-  DOM.addTransaction(transaction);
-});
+const App = {
+  init() {
+    Transaction.all.forEach((transaction) => {
+      DOM.addTransaction(transaction);
+    });
 
-DOM.updateBalance();  }
+    DOM.updateBalance();
+  }
 };
 
 App.init();
