@@ -102,8 +102,9 @@ body {
 }
 
 .card p {
-  margin-top: 0.5rem;
-  font-size : 2rem;
+  margin-top : 0.5rem;
+  font-size  : 2rem;
+  white-space: nowrap;
 }
 
 .card.total {
