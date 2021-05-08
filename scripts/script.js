@@ -2,8 +2,14 @@ const form = document.querySelector('.form');
 const modal = form.parentElement;
 
 const Modal = {
-  open() {
-    modal.classList.add('active');
+  openClose() {
+    modal.classList.toggle('active');
+  }
+};
+
+const Transaction = {
+  income = {
+    //somar valores de entrada
   },
   close() {
     modal.classList.remove('active');
