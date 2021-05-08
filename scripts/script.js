@@ -11,8 +11,13 @@ const Transaction = {
   income = {
     //somar valores de entrada
   },
-  close() {
-    modal.classList.remove('active');
+  expense = {
+    //somar valores de saida
+  },
+  total = {
+    //somar entrada e saídas
+  }
+};
 
 const transactions = [
   {
