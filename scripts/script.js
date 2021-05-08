@@ -52,6 +52,7 @@ const DOM = {
         </td>
       </tr>
   `;
+    return html;
   }
 
 };
