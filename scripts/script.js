@@ -99,6 +99,12 @@ const DOM = {
       </td>
   `;
     return html;
+  },
+  updateBalance() {
+    const cards = document.querySelectorAll('.card');
+    cards[0].lastElementChild.innerHTML = Utils.formatCurrent(Transaction.income());
+    cards[1].lastElementChild.innerHTML = Utils.formatCurrent(Transaction.expense());
+    cards[2].lastElementChild.innerHTML = Utils.formatCurrent(Transaction.total());
   }
 };
 
