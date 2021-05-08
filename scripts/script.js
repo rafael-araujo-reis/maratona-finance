@@ -62,3 +62,5 @@ const DOM = {
   }
 
 };
+
+DOM.addTransaction(transactions[0]);
