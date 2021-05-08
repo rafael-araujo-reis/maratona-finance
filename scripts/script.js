@@ -111,3 +111,5 @@ const DOM = {
 transactions.forEach((transaction) => {
   DOM.addTransaction(transaction);
 });
+
+DOM.updateBalance();
