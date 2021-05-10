@@ -39,10 +39,7 @@ const Transaction = {
       amount: 1300000,
       date: '13/04/2021'
     }
-];
-
-const Transaction = {
-  all: transactions,
+  ],
   add(transaction) {
     this.all.push(transaction);
     DOM.addTransaction(transaction);
