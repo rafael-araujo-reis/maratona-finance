@@ -86,6 +86,15 @@ const Utils = {
       currency: 'BRL'
     });
     return signal + value;
+  },
+  formatAmount(value) {
+    value = Number(value) * 100;
+    return value;
+  },
+  formatDate(date) {
+    date = date.split('-');
+    date = `${date[2]}/${date[1]}/${date[0]}`;
+    return date;
   }
 };
 
@@ -135,15 +144,27 @@ const Form = {
   validateFields() {
     const { description, amount, date } = Form.getValues();
 
-    if (description === '', amount === '', date === '') {
+    if (
+      description === '' ||
+      amount === '',
+      amount === 0 ||
+      date === '') {
       throw new Error('Por favor, preencha todos os campos');
     }
+  },
+  formatValues() {
+    let { description, amount, date } = Form.getValues();
+    amount = Utils.formatAmount(amount);
+    date = Utils.formatDate(date);
+
+    return { description, amount, date };
   },
   submit(event) {
     try {
       event.preventDefault();
       this.validateFields();
       // formatar dados
+      const transation = this.formatValues();
       // salvar dados
       // limpar formulário
       // fechar modal
