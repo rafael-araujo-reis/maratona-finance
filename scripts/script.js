@@ -45,6 +45,11 @@ const Transaction = {
     DOM.addTransaction(transaction);
     DOM.updateBalance();
   },
+  remove(index) {
+    this.all.splice(index, 1);
+    DOM.removeTransacion(index);
+    DOM.updateBalance();
+  },
   income() {
     let incomeSum = 0;
     transactions.forEach((transaction) => {
@@ -92,6 +97,9 @@ const DOM = {
     const tr = document.createElement('tr');
     tr.innerHTML = this.innerHTMLTransactions(transaction);
     this.transactionContainer.append(tr);
+  },
+  removeTransacion(index) {
+    this.transactionContainer.deleteRow(index);
   },
   innerHTMLTransactions(transaction) {
     const classCSS = transaction.amount > 0 ? 'income' : 'expense';
