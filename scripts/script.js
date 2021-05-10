@@ -47,7 +47,7 @@ const Transaction = {
   },
   remove(index) {
     this.all.splice(index, 1);
-    DOM.removeTransacion(index);
+    DOM.removeTransaction(index);
     DOM.updateBalance();
   },
   income() {
@@ -105,7 +105,7 @@ const DOM = {
     tr.innerHTML = this.innerHTMLTransactions(transaction);
     this.transactionContainer.append(tr);
   },
-  removeTransacion(index) {
+  removeTransaction(index) {
     this.transactionContainer.deleteRow(index);
   },
   innerHTMLTransactions(transaction) {
