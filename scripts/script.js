@@ -159,16 +159,25 @@ const Form = {
 
     return { description, amount, date };
   },
+  saveTransaction(transaction) {
+    Transaction.add(transaction);
+  },
+  clearForm() {
+    Form.description.value = '';
+    this.amount.value = '';
+    this.date.value = '';
+  },
+  closeModal() {
+    Modal.openClose();
+  },
   submit(event) {
     try {
       event.preventDefault();
       this.validateFields();
-      // formatar dados
-      const transation = this.formatValues();
-      // salvar dados
-      // limpar formulário
-      // fechar modal
-      // Atualizar dados
+      const transaction = this.formatValues();
+      this.saveTransaction(transaction);
+      this.clearForm();
+      this.closeModal();
     } catch (error) {
       alert(error.message);
     }
