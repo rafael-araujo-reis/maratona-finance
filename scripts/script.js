@@ -89,8 +89,6 @@ const Utils = {
   }
 };
 
-
-
 const DOM = {
   transactionContainer: document.querySelector('#data-table tbody'),
   addTransaction(transaction, index) {
