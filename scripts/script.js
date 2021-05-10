@@ -120,6 +120,40 @@ const DOM = {
   }
 };
 
+const Form = {
+  description: document.querySelector('#description'),
+  amount: document.querySelector('#amount'),
+  date: document.querySelector('#date'),
+
+  getValues() {
+    return {
+      description: Form.description.value,
+      amount: Form.amount.value,
+      date: Form.date.value
+    };
+  },
+  validateFields() {
+    const { description, amount, date } = Form.getValues();
+
+    if (description === '', amount === '', date === '') {
+      throw new Error('Por favor, preencha todos os campos');
+    }
+  },
+  submit(event) {
+    try {
+      event.preventDefault();
+      this.validateFields();
+      // formatar dados
+      // salvar dados
+      // limpar formulário
+      // fechar modal
+      // Atualizar dados
+    } catch (error) {
+      alert(error.message);
+    }
+  }
+};
+
 const App = {
   init() {
     Transaction.all.forEach((transaction) => {
