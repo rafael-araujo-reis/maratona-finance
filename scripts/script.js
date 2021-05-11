@@ -20,19 +20,18 @@ const Storage = {
 const Transaction = {
   all: Storage.get(),
   add(transaction) {
-    this.all.push(transaction);
-    DOM.addTransaction(transaction);
-    DOM.updateBalance();
+    Transaction.all.push(transaction);
+    App.reload();
   },
   remove(index) {
     index = index - 1;
-    this.all.splice(index, 1);
+    Transaction.all.splice(index, 1);
     DOM.removeTransaction(index);
     DOM.updateBalance();
   },
   income() {
     let incomeSum = 0;
-    transactions.forEach((transaction) => {
+    Transaction.all.forEach((transaction) => {
       if (transaction.amount > 0) {
         incomeSum += transaction.amount;
       }
@@ -41,7 +40,7 @@ const Transaction = {
   },
   expense() {
     let expenseSum = 0;
-    this.all.forEach((transaction) => {
+    Transaction.all.forEach((transaction) => {
       if (transaction.amount < 0) {
         expenseSum += transaction.amount;
       }
@@ -50,14 +49,14 @@ const Transaction = {
   },
   total() {
     let totalSum = 0;
-    totalSum = this.expense() + this.income();
+    totalSum = Transaction.expense() + Transaction.income();
     return totalSum;
   }
 };
 
 const Utils = {
   formatCurrent(value) {
-    const signal = Number(value) > 0 ? '' : '-';
+    const signal = Number(value) >= 0 ? '' : '-';
     value = String(value).replace(/\D/, '');
     value = Number(value) / 100;
 
@@ -82,11 +81,11 @@ const DOM = {
   transactionContainer: document.querySelector('#data-table tbody'),
   addTransaction(transaction, index) {
     const tr = document.createElement('tr');
-    tr.innerHTML = this.innerHTMLTransactions(transaction, index);
-    this.transactionContainer.append(tr);
+    tr.innerHTML = DOM.innerHTMLTransactions(transaction, index);
+    DOM.transactionContainer.append(tr);
   },
   removeTransaction(index) {
-    this.transactionContainer.deleteRow(index);
+    DOM.transactionContainer.deleteRow(index);
   },
   innerHTMLTransactions(transaction) {
     const classCSS = transaction.amount > 0 ? 'income' : 'expense';
@@ -106,6 +105,9 @@ const DOM = {
     cards[0].lastElementChild.innerHTML = Utils.formatCurrent(Transaction.income());
     cards[1].lastElementChild.innerHTML = Utils.formatCurrent(Transaction.expense());
     cards[2].lastElementChild.innerHTML = Utils.formatCurrent(Transaction.total());
+  },
+  clearTransactions() {
+    DOM.transactionContainer.innerHTML = '';
   }
 };
 
@@ -144,8 +146,8 @@ const Form = {
   },
   clearForm() {
     Form.description.value = '';
-    this.amount.value = '';
-    this.date.value = '';
+    Form.amount.value = '';
+    Form.date.value = '';
   },
   closeModal() {
     Modal.openClose();
@@ -153,11 +155,11 @@ const Form = {
   submit(event) {
     try {
       event.preventDefault();
-      this.validateFields();
-      const transaction = this.formatValues();
-      this.saveTransaction(transaction);
-      this.clearForm();
-      this.closeModal();
+      Form.validateFields();
+      const transaction = Form.formatValues();
+      Form.saveTransaction(transaction);
+      Form.clearForm();
+      Form.closeModal();
     } catch (error) {
       alert(error.message);
     }
@@ -166,10 +168,7 @@ const Form = {
 
 const App = {
   init() {
-    Transaction.all.forEach((transaction, index) => {
-      DOM.addTransaction(transaction, index);
-    });
-
+    Transaction.all.forEach(DOM.addTransaction);
     DOM.updateBalance();
     Storage.set(Transaction.all);
   },
