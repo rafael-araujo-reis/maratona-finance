@@ -117,7 +117,7 @@ const DOM = {
       <td class="${classCSS}">${amount}</td>
       <td class="date">${transaction.date}</td>
       <td>
-        <img src="./assets/minus.svg" alt="Remover transação">
+        <img onclick="Transaction.remove(this.parentElement.parentElement.rowIndex)" src="./assets/minus.svg" alt="Remover transação">
       </td>
   `;
     return html;
