@@ -67,8 +67,8 @@ const Utils = {
     return signal + value;
   },
   formatAmount(value) {
-    value = Number(value) * 100;
-    return value;
+    value = value * 100;
+    return Math.random(value);
   },
   formatDate(date) {
     date = date.split('-');
@@ -125,11 +125,9 @@ const Form = {
   },
   validateFields() {
     const { description, amount, date } = Form.getValues();
-
     if (
       description === '' ||
-      amount === '',
-      amount === 0 ||
+      amount === '' ||
       date === '') {
       throw new Error('Por favor, preencha todos os campos');
     }
