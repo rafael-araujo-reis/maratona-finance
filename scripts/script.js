@@ -103,7 +103,7 @@ const DOM = {
   transactionContainer: document.querySelector('#data-table tbody'),
   addTransaction(transaction, index) {
     const tr = document.createElement('tr');
-    tr.innerHTML = this.innerHTMLTransactions(transaction);
+    tr.innerHTML = this.innerHTMLTransactions(transaction, index);
     this.transactionContainer.append(tr);
   },
   removeTransaction(index) {
@@ -187,8 +187,8 @@ const Form = {
 
 const App = {
   init() {
-    Transaction.all.forEach((transaction) => {
-      DOM.addTransaction(transaction);
+    Transaction.all.forEach((transaction, index) => {
+      DOM.addTransaction(transaction, index);
     });
 
     DOM.updateBalance();
