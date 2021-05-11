@@ -46,6 +46,7 @@ const Transaction = {
     DOM.updateBalance();
   },
   remove(index) {
+    index = index - 1;
     this.all.splice(index, 1);
     DOM.removeTransaction(index);
     DOM.updateBalance();
