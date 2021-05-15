@@ -68,7 +68,7 @@ const Utils = {
   },
   formatAmount(value) {
     value = value * 100;
-    return Math.random(value);
+    return Math.round(value);
   },
   formatDate(date) {
     date = date.split('-');
