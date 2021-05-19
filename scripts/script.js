@@ -5,6 +5,7 @@ const Modal = {
   openClose() {
     Form.clearForm();
     modal.classList.toggle('active');
+    Form.inputDateToday();
   }
 };
 
@@ -124,6 +125,11 @@ const Form = {
       date: Form.date.value
     };
   },
+  inputDateToday() {
+    let today = new Date();
+    today = today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getDate()).slice(-2);
+    date.value = today;
+  },
   validateFields() {
     const { description, amount, date } = Form.getValues();
     if (
@@ -156,8 +162,7 @@ const Form = {
       event.preventDefault();
       Form.validateFields();
       const transaction = Form.formatValues();
-      Form.saveTransaction(transaction);      
-      
+      Form.saveTransaction(transaction);
       Form.closeModal();
     } catch (error) {
       alert(error.message);
