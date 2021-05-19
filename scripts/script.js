@@ -3,6 +3,7 @@ const modal = form.parentElement;
 
 const Modal = {
   openClose() {
+    Form.clearForm();
     modal.classList.toggle('active');
   }
 };
@@ -155,8 +156,8 @@ const Form = {
       event.preventDefault();
       Form.validateFields();
       const transaction = Form.formatValues();
-      Form.saveTransaction(transaction);
-      Form.clearForm();
+      Form.saveTransaction(transaction);      
+      
       Form.closeModal();
     } catch (error) {
       alert(error.message);
